@@ -15,8 +15,10 @@ CREATE TABLE `customer_address_entity` (
   CONSTRAINT `FK_CUSTOMER_ADDRESS_ENTITY_PARENT_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`parent_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity';
 
+LOCK TABLES `customer_address_entity` WRITE;
 INSERT INTO `customer_address_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `increment_id`, `parent_id`, `created_at`, `updated_at`, `is_active`) VALUES
 (1,	2,	0,	NULL,	1,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1);
+UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `customer_address_entity_int`;
 CREATE TABLE `customer_address_entity_int` (
@@ -36,8 +38,11 @@ CREATE TABLE `customer_address_entity_int` (
   CONSTRAINT `FK_CSTR_ADDR_ENTT_INT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Int';
 
+LOCK TABLES `customer_address_entity_int` WRITE;
 INSERT INTO `customer_address_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	2,	29,	1,	22);
+UNLOCK TABLES;
+
 
 DROP TABLE IF EXISTS `customer_address_entity_text`;
 CREATE TABLE `customer_address_entity_text` (
@@ -56,8 +61,11 @@ CREATE TABLE `customer_address_entity_text` (
   CONSTRAINT `FK_CSTR_ADDR_ENTT_TEXT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Text';
 
+LOCK TABLES `customer_address_entity_text` WRITE;
 INSERT INTO `customer_address_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	2,	25,	1,	'1515 21st ave');
+UNLOCK TABLES;
+
 
 DROP TABLE IF EXISTS `customer_address_entity_varchar`;
 CREATE TABLE `customer_address_entity_varchar` (
@@ -77,6 +85,7 @@ CREATE TABLE `customer_address_entity_varchar` (
   CONSTRAINT `FK_CSTR_ADDR_ENTT_VCHR_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Varchar';
 
+LOCK TABLES `customer_address_entity_varchar` WRITE;
 INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	2,	19,	1,	NULL),
 (2,	2,	20,	1,	'Jeremy'),
@@ -91,6 +100,8 @@ INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `at
 (11,	2,	31,	1,	'208-305-7407'),
 (12,	2,	32,	1,	NULL),
 (13,	2,	36,	1,	NULL);
+UNLOCK TABLES;
+
 
 DROP TABLE IF EXISTS `customer_eav_attribute`;
 CREATE TABLE `customer_eav_attribute` (
@@ -106,6 +117,7 @@ CREATE TABLE `customer_eav_attribute` (
   CONSTRAINT `FK_CSTR_EAV_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Eav Attribute';
 
+LOCK TABLES `customer_eav_attribute` WRITE;
 INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filter`, `multiline_count`, `validate_rules`, `is_system`, `sort_order`, `data_model`) VALUES
 (1,	1,	NULL,	0,	NULL,	1,	10,	NULL),
 (2,	0,	NULL,	0,	NULL,	1,	0,	NULL),
@@ -147,6 +159,8 @@ INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filte
 (38,	0,	NULL,	0,	NULL,	1,	0,	NULL),
 (39,	0,	NULL,	0,	NULL,	1,	0,	NULL),
 (40,	0,	NULL,	0,	NULL,	1,	0,	NULL);
+UNLOCK TABLES;
+
 
 DROP TABLE IF EXISTS `customer_entity`;
 CREATE TABLE `customer_entity` (
@@ -171,8 +185,11 @@ CREATE TABLE `customer_entity` (
   CONSTRAINT `FK_CUSTOMER_ENTITY_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity';
 
+LOCK TABLES `customer_eav_attribute` WRITE;
 INSERT INTO `customer_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `website_id`, `email`, `group_id`, `increment_id`, `store_id`, `created_at`, `updated_at`, `is_active`, `disable_auto_group_change`) VALUES
 (1,	1,	0,	1,	'jeremybass@cableone.net',	1,	NULL,	0,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1,	0);
+UNLOCK TABLES;
+
 
 DROP TABLE IF EXISTS `customer_entity_datetime`;
 CREATE TABLE `customer_entity_datetime` (
@@ -192,8 +209,10 @@ CREATE TABLE `customer_entity_datetime` (
   CONSTRAINT `FK_CSTR_ENTT_DTIME_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Datetime';
 
+LOCK TABLES `customer_entity_datetime` WRITE;
 INSERT INTO `customer_entity_datetime` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	1,	11,	1,	'1982-03-17 00:00:00');
+UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `customer_entity_int`;
 CREATE TABLE `customer_entity_int` (
@@ -213,10 +232,12 @@ CREATE TABLE `customer_entity_int` (
   CONSTRAINT `FK_CSTR_ENTT_INT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Int';
 
+LOCK TABLES `customer_entity_int` WRITE;
 INSERT INTO `customer_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	1,	18,	1,	1),
 (2,	1,	13,	1,	1),
 (3,	1,	14,	1,	1);
+UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `customer_entity_varchar`;
 CREATE TABLE `customer_entity_varchar` (
@@ -236,12 +257,14 @@ CREATE TABLE `customer_entity_varchar` (
   CONSTRAINT `FK_CSTR_ENTT_VCHR_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Varchar';
 
+LOCK TABLES `customer_entity_varchar` WRITE;
 INSERT INTO `customer_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (2,	1,	5,	1,	'Jeremy'),
 (3,	1,	6,	1,	'L'),
 (4,	1,	7,	1,	'Bass'),
 (7,	1,	12,	1,	'e629b520f893796fba64670cc0a951ee:m3'),
 (8,	1,	3,	1,	'Admin');
+UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `customer_form_attribute`;
 CREATE TABLE `customer_form_attribute` (
@@ -252,6 +275,7 @@ CREATE TABLE `customer_form_attribute` (
   CONSTRAINT `FK_CSTR_FORM_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Form Attribute';
 
+LOCK TABLES `customer_form_attribute` WRITE;
 INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
 ('adminhtml_customer',	1),
 ('adminhtml_customer',	3),
@@ -347,6 +371,7 @@ INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
 ('adminhtml_customer_address',	36),
 ('customer_address_edit',	36),
 ('customer_register_address',	36);
+UNLOCK TABLES;
 
 
 
@@ -504,8 +529,12 @@ CREATE TABLE `sales_flat_order` (
   CONSTRAINT `FK_SALES_FLAT_ORDER_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order';
 
+LOCK TABLES `sales_flat_order` WRITE;
 INSERT INTO `sales_flat_order` (`entity_id`, `state`, `status`, `coupon_code`, `protect_code`, `shipping_description`, `is_virtual`, `store_id`, `customer_id`, `base_discount_amount`, `base_discount_canceled`, `base_discount_invoiced`, `base_discount_refunded`, `base_grand_total`, `base_shipping_amount`, `base_shipping_canceled`, `base_shipping_invoiced`, `base_shipping_refunded`, `base_shipping_tax_amount`, `base_shipping_tax_refunded`, `base_subtotal`, `base_subtotal_canceled`, `base_subtotal_invoiced`, `base_subtotal_refunded`, `base_tax_amount`, `base_tax_canceled`, `base_tax_invoiced`, `base_tax_refunded`, `base_to_global_rate`, `base_to_order_rate`, `base_total_canceled`, `base_total_invoiced`, `base_total_invoiced_cost`, `base_total_offline_refunded`, `base_total_online_refunded`, `base_total_paid`, `base_total_qty_ordered`, `base_total_refunded`, `discount_amount`, `discount_canceled`, `discount_invoiced`, `discount_refunded`, `grand_total`, `shipping_amount`, `shipping_canceled`, `shipping_invoiced`, `shipping_refunded`, `shipping_tax_amount`, `shipping_tax_refunded`, `store_to_base_rate`, `store_to_order_rate`, `subtotal`, `subtotal_canceled`, `subtotal_invoiced`, `subtotal_refunded`, `tax_amount`, `tax_canceled`, `tax_invoiced`, `tax_refunded`, `total_canceled`, `total_invoiced`, `total_offline_refunded`, `total_online_refunded`, `total_paid`, `total_qty_ordered`, `total_refunded`, `can_ship_partially`, `can_ship_partially_item`, `customer_is_guest`, `customer_note_notify`, `billing_address_id`, `customer_group_id`, `edit_increment`, `email_sent`, `forced_shipment_with_invoice`, `payment_auth_expiration`, `quote_address_id`, `quote_id`, `shipping_address_id`, `adjustment_negative`, `adjustment_positive`, `base_adjustment_negative`, `base_adjustment_positive`, `base_shipping_discount_amount`, `base_subtotal_incl_tax`, `base_total_due`, `payment_authorization_amount`, `shipping_discount_amount`, `subtotal_incl_tax`, `total_due`, `weight`, `customer_dob`, `increment_id`, `applied_rule_ids`, `base_currency_code`, `customer_email`, `customer_firstname`, `customer_lastname`, `customer_middlename`, `customer_prefix`, `customer_suffix`, `customer_taxvat`, `discount_description`, `ext_customer_id`, `ext_order_id`, `global_currency_code`, `hold_before_state`, `hold_before_status`, `order_currency_code`, `original_increment_id`, `relation_child_id`, `relation_child_real_id`, `relation_parent_id`, `relation_parent_real_id`, `remote_ip`, `shipping_method`, `store_currency_code`, `store_name`, `x_forwarded_for`, `customer_note`, `created_at`, `updated_at`, `total_item_count`, `customer_gender`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `hidden_tax_invoiced`, `base_hidden_tax_invoiced`, `hidden_tax_refunded`, `base_hidden_tax_refunded`, `shipping_incl_tax`, `base_shipping_incl_tax`, `coupon_rule_name`, `paypal_ipn_customer_notified`, `gift_message_id`) VALUES
 (1,	'new',	'pending',	NULL,	'15f888',	'Flat Rate - Fixed',	0,	1,	1,	0.0000,	NULL,	NULL,	NULL,	17.0000,	5.0000,	NULL,	NULL,	NULL,	0.0000,	NULL,	12.0000,	NULL,	NULL,	NULL,	0.0000,	NULL,	NULL,	NULL,	1.0000,	1.0000,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	0.0000,	NULL,	NULL,	NULL,	17.0000,	5.0000,	NULL,	NULL,	NULL,	0.0000,	NULL,	1.0000,	1.0000,	12.0000,	NULL,	NULL,	NULL,	0.0000,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1.0000,	NULL,	NULL,	NULL,	0,	0,	1,	1,	NULL,	1,	NULL,	NULL,	NULL,	5,	2,	NULL,	NULL,	NULL,	NULL,	0.0000,	12.0000,	NULL,	NULL,	0.0000,	12.0000,	NULL,	12.0000,	'1982-03-17 00:00:00',	'100000001',	NULL,	'USD',	'jeremybass@cableone.net',	'Jeremy',	'Bass',	'L',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'USD',	NULL,	NULL,	'USD',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'flatrate_flatrate',	'USD',	'Main Website\nMain Website Store\nDefault Store View',	NULL,	NULL,	'2013-10-27 22:51:05',	'2013-10-27 22:51:07',	1,	1,	0.0000,	0.0000,	0.0000,	0.0000,	NULL,	NULL,	NULL,	NULL,	5.0000,	5.0000,	NULL,	0,	NULL);
+UNLOCK TABLES;
+
+
 
 DROP TABLE IF EXISTS `sales_flat_order_address`;
 CREATE TABLE `sales_flat_order_address` (
@@ -540,9 +569,12 @@ CREATE TABLE `sales_flat_order_address` (
   CONSTRAINT `FK_SALES_FLAT_ORDER_ADDRESS_PARENT_ID_SALES_FLAT_ORDER_ENTITY_ID` FOREIGN KEY (`parent_id`) REFERENCES `sales_flat_order` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Address';
 
+
+LOCK TABLES `sales_flat_order_address` WRITE;
 INSERT INTO `sales_flat_order_address` (`entity_id`, `parent_id`, `customer_address_id`, `quote_address_id`, `region_id`, `customer_id`, `fax`, `region`, `postcode`, `lastname`, `street`, `city`, `email`, `telephone`, `country_id`, `firstname`, `address_type`, `prefix`, `middlename`, `suffix`, `company`, `vat_id`, `vat_is_valid`, `vat_request_id`, `vat_request_date`, `vat_request_success`) VALUES
 (1,	1,	1,	NULL,	22,	1,	NULL,	'Idaho',	'83501',	'Bass',	'1515 21st ave',	'Lewiston',	'jeremybass@cableone.net',	'208-305-7407',	'US',	'Jeremy',	'billing',	NULL,	'L',	'1515 21st ave',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL),
 (2,	1,	1,	NULL,	22,	1,	NULL,	'Idaho',	'83501',	'Bass',	'1515 21st ave',	'Lewiston',	'jeremybass@cableone.net',	'208-305-7407',	'US',	'Jeremy',	'shipping',	NULL,	'L',	'1515 21st ave',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL);
+UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sales_flat_order_grid`;
 CREATE TABLE `sales_flat_order_grid` (
