@@ -1,89 +1,18 @@
 
-
-DROP TABLE IF EXISTS `customer_address_entity`;
-CREATE TABLE `customer_address_entity` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set Id',
-  `increment_id` varchar(50) DEFAULT NULL COMMENT 'Increment Id',
-  `parent_id` int(10) unsigned DEFAULT NULL COMMENT 'Parent Id',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
-  `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Active',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_PARENT_ID` (`parent_id`),
-  CONSTRAINT `FK_CUSTOMER_ADDRESS_ENTITY_PARENT_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`parent_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity';
-
 LOCK TABLES `customer_address_entity` WRITE;
 INSERT INTO `customer_address_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `increment_id`, `parent_id`, `created_at`, `updated_at`, `is_active`) VALUES
 (1,	2,	0,	NULL,	1,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1);
 UNLOCK TABLES;
-
-DROP TABLE IF EXISTS `customer_address_entity_int`;
-CREATE TABLE `customer_address_entity_int` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`),
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_INT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_INT_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_INT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Int';
 
 LOCK TABLES `customer_address_entity_int` WRITE;
 INSERT INTO `customer_address_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	2,	29,	1,	22);
 UNLOCK TABLES;
 
-
-DROP TABLE IF EXISTS `customer_address_entity_text`;
-CREATE TABLE `customer_address_entity_text` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` text NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID` (`entity_id`),
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_TEXT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_TEXT_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_TEXT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Text';
-
 LOCK TABLES `customer_address_entity_text` WRITE;
 INSERT INTO `customer_address_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	2,	25,	1,	'1515 21st ave');
 UNLOCK TABLES;
-
-
-DROP TABLE IF EXISTS `customer_address_entity_varchar`;
-CREATE TABLE `customer_address_entity_varchar` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`),
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_VCHR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_VCHR_ENTT_ID_CSTR_ADDR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_address_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ADDR_ENTT_VCHR_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Varchar';
 
 LOCK TABLES `customer_address_entity_varchar` WRITE;
 INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
@@ -101,21 +30,6 @@ INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `at
 (12,	2,	32,	1,	NULL),
 (13,	2,	36,	1,	NULL);
 UNLOCK TABLES;
-
-
-DROP TABLE IF EXISTS `customer_eav_attribute`;
-CREATE TABLE `customer_eav_attribute` (
-  `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
-  `is_visible` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Visible',
-  `input_filter` varchar(255) DEFAULT NULL COMMENT 'Input Filter',
-  `multiline_count` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Multiline Count',
-  `validate_rules` text COMMENT 'Validate Rules',
-  `is_system` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is System',
-  `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  `data_model` varchar(255) DEFAULT NULL COMMENT 'Data Model',
-  PRIMARY KEY (`attribute_id`),
-  CONSTRAINT `FK_CSTR_EAV_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Eav Attribute';
 
 LOCK TABLES `customer_eav_attribute` WRITE;
 INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filter`, `multiline_count`, `validate_rules`, `is_system`, `sort_order`, `data_model`) VALUES
@@ -161,76 +75,15 @@ INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filte
 (40,	0,	NULL,	0,	NULL,	1,	0,	NULL);
 UNLOCK TABLES;
 
-
-DROP TABLE IF EXISTS `customer_entity`;
-CREATE TABLE `customer_entity` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set Id',
-  `website_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Website Id',
-  `email` varchar(255) DEFAULT NULL COMMENT 'Email',
-  `group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Group Id',
-  `increment_id` varchar(50) DEFAULT NULL COMMENT 'Increment Id',
-  `store_id` smallint(5) unsigned DEFAULT '0' COMMENT 'Store Id',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
-  `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Active',
-  `disable_auto_group_change` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Disable automatic group change based on VAT ID',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_STORE_ID` (`store_id`),
-  KEY `IDX_CUSTOMER_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_EMAIL_WEBSITE_ID` (`email`,`website_id`),
-  KEY `IDX_CUSTOMER_ENTITY_WEBSITE_ID` (`website_id`),
-  CONSTRAINT `FK_CUSTOMER_ENTITY_STORE_ID_CORE_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `core_store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `FK_CUSTOMER_ENTITY_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` FOREIGN KEY (`website_id`) REFERENCES `core_website` (`website_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity';
-
-LOCK TABLES `customer_eav_attribute` WRITE;
-INSERT INTO `customer_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `website_id`, `email`, `group_id`, `increment_id`, `store_id`, `created_at`, `updated_at`, `is_active`, `disable_auto_group_change`) VALUES
-(1,	1,	0,	1,	'jeremybass@cableone.net',	1,	NULL,	0,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1,	0);
-UNLOCK TABLES;
-
-
-DROP TABLE IF EXISTS `customer_entity_datetime`;
-CREATE TABLE `customer_entity_datetime` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`),
-  CONSTRAINT `FK_CSTR_ENTT_DTIME_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ENTT_DTIME_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Datetime';
+#LOCK TABLES `customer_eav_attribute` WRITE;
+#INSERT INTO `customer_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `website_id`, `email`, `group_id`, `increment_id`, `store_id`, `created_at`, `updated_at`, `is_active`, `disable_auto_group_change`) VALUES
+#(1,	1,	0,	1,	'jeremybass@cableone.net',	1,	NULL,	0,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1,	0);
+#UNLOCK TABLES;
 
 LOCK TABLES `customer_entity_datetime` WRITE;
 INSERT INTO `customer_entity_datetime` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
 (1,	1,	11,	1,	'1982-03-17 00:00:00');
 UNLOCK TABLES;
-
-DROP TABLE IF EXISTS `customer_entity_int`;
-CREATE TABLE `customer_entity_int` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`),
-  CONSTRAINT `FK_CUSTOMER_ENTITY_INT_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CUSTOMER_ENTITY_INT_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ENTT_INT_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Int';
 
 LOCK TABLES `customer_entity_int` WRITE;
 INSERT INTO `customer_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
@@ -238,24 +91,6 @@ INSERT INTO `customer_entity_int` (`value_id`, `entity_type_id`, `attribute_id`,
 (2,	1,	13,	1,	1),
 (3,	1,	14,	1,	1);
 UNLOCK TABLES;
-
-DROP TABLE IF EXISTS `customer_entity_varchar`;
-CREATE TABLE `customer_entity_varchar` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
-  `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`),
-  CONSTRAINT `FK_CSTR_ENTT_VCHR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_CUSTOMER_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `customer_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CSTR_ENTT_VCHR_ENTT_TYPE_ID_EAV_ENTT_TYPE_ENTT_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Varchar';
 
 LOCK TABLES `customer_entity_varchar` WRITE;
 INSERT INTO `customer_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
@@ -265,15 +100,6 @@ INSERT INTO `customer_entity_varchar` (`value_id`, `entity_type_id`, `attribute_
 (7,	1,	12,	1,	'e629b520f893796fba64670cc0a951ee:m3'),
 (8,	1,	3,	1,	'Admin');
 UNLOCK TABLES;
-
-DROP TABLE IF EXISTS `customer_form_attribute`;
-CREATE TABLE `customer_form_attribute` (
-  `form_code` varchar(32) NOT NULL COMMENT 'Form Code',
-  `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
-  PRIMARY KEY (`form_code`,`attribute_id`),
-  KEY `IDX_CUSTOMER_FORM_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`),
-  CONSTRAINT `FK_CSTR_FORM_ATTR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Form Attribute';
 
 LOCK TABLES `customer_form_attribute` WRITE;
 INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
