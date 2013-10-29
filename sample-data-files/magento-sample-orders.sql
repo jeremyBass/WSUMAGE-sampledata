@@ -1,201 +1,4 @@
 
-LOCK TABLES `customer_address_entity` WRITE;
-INSERT INTO `customer_address_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `increment_id`, `parent_id`, `created_at`, `updated_at`, `is_active`) VALUES
-(1,	2,	0,	NULL,	1,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1);
-UNLOCK TABLES;
-
-LOCK TABLES `customer_address_entity_int` WRITE;
-INSERT INTO `customer_address_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	2,	29,	1,	22);
-UNLOCK TABLES;
-
-LOCK TABLES `customer_address_entity_text` WRITE;
-INSERT INTO `customer_address_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	2,	25,	1,	'1515 21st ave');
-UNLOCK TABLES;
-
-LOCK TABLES `customer_address_entity_varchar` WRITE;
-INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	2,	19,	1,	NULL),
-(2,	2,	20,	1,	'John'),
-(3,	2,	21,	1,	'L'),
-(4,	2,	22,	1,	'Doe'),
-(5,	2,	23,	1,	'1515 21st ave'),
-(6,	2,	24,	1,	NULL),
-(7,	2,	26,	1,	'Lewiston'),
-(8,	2,	27,	1,	'US'),
-(9,	2,	28,	1,	'Idaho'),
-(10,	2,	30,	1,	'83501'),
-(11,	2,	31,	1,	'208-555-5555'),
-(12,	2,	32,	1,	NULL),
-(13,	2,	36,	1,	NULL);
-UNLOCK TABLES;
-
-LOCK TABLES `customer_eav_attribute` WRITE;
-INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filter`, `multiline_count`, `validate_rules`, `is_system`, `sort_order`, `data_model`) VALUES
-(1,	1,	NULL,	0,	NULL,	1,	10,	NULL),
-(2,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(3,	1,	NULL,	0,	NULL,	1,	20,	NULL),
-(4,	0,	NULL,	0,	NULL,	0,	30,	NULL),
-(5,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	40,	NULL),
-(6,	0,	NULL,	0,	NULL,	0,	50,	NULL),
-(7,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	60,	NULL),
-(8,	0,	NULL,	0,	NULL,	0,	70,	NULL),
-(9,	1,	NULL,	0,	'a:1:{s:16:\"input_validation\";s:5:\"email\";}',	1,	80,	NULL),
-(10,	1,	NULL,	0,	NULL,	1,	25,	NULL),
-(11,	0,	'date',	0,	'a:1:{s:16:\"input_validation\";s:4:\"date\";}',	0,	90,	NULL),
-(12,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(13,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(14,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(15,	0,	NULL,	0,	'a:1:{s:15:\"max_text_length\";i:255;}',	0,	100,	NULL),
-(16,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(17,	0,	NULL,	0,	NULL,	0,	0,	NULL),
-(18,	0,	NULL,	0,	'a:0:{}',	0,	110,	NULL),
-(19,	0,	NULL,	0,	NULL,	0,	10,	NULL),
-(20,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	20,	NULL),
-(21,	0,	NULL,	0,	NULL,	0,	30,	NULL),
-(22,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	40,	NULL),
-(23,	0,	NULL,	0,	NULL,	0,	50,	NULL),
-(24,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	60,	NULL),
-(25,	1,	NULL,	2,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	70,	NULL),
-(26,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	80,	NULL),
-(27,	1,	NULL,	0,	NULL,	1,	90,	NULL),
-(28,	1,	NULL,	0,	NULL,	1,	100,	NULL),
-(29,	1,	NULL,	0,	NULL,	1,	100,	NULL),
-(30,	1,	NULL,	0,	'a:0:{}',	1,	110,	'customer/attribute_data_postcode'),
-(31,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	120,	NULL),
-(32,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	130,	NULL),
-(33,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(34,	0,	NULL,	0,	'a:1:{s:16:\"input_validation\";s:4:\"date\";}',	1,	0,	NULL),
-(35,	1,	NULL,	0,	NULL,	1,	28,	NULL),
-(36,	1,	NULL,	0,	NULL,	1,	140,	NULL),
-(37,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(38,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(39,	0,	NULL,	0,	NULL,	1,	0,	NULL),
-(40,	0,	NULL,	0,	NULL,	1,	0,	NULL);
-UNLOCK TABLES;
-
-
-
-LOCK TABLES `customer_entity_datetime` WRITE;
-INSERT INTO `customer_entity_datetime` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	1,	11,	1,	'1982-03-17 00:00:00');
-UNLOCK TABLES;
-
-LOCK TABLES `customer_entity_int` WRITE;
-INSERT INTO `customer_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	1,	18,	1,	1),
-(2,	1,	13,	1,	1),
-(3,	1,	14,	1,	1);
-UNLOCK TABLES;
-
-LOCK TABLES `customer_entity_varchar` WRITE;
-INSERT INTO `customer_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(2,	1,	5,	1,	'John'),
-(3,	1,	6,	1,	'L'),
-(4,	1,	7,	1,	'Doe'),
-(7,	1,	12,	1,	'e629b520f893796fba64670cc0a951ee:m3'),
-(8,	1,	3,	1,	'Admin');
-UNLOCK TABLES;
-
-LOCK TABLES `customer_form_attribute` WRITE;
-INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
-('adminhtml_customer',	1),
-('adminhtml_customer',	3),
-('adminhtml_customer',	4),
-('checkout_register',	4),
-('customer_account_create',	4),
-('customer_account_edit',	4),
-('adminhtml_customer',	5),
-('checkout_register',	5),
-('customer_account_create',	5),
-('customer_account_edit',	5),
-('adminhtml_customer',	6),
-('checkout_register',	6),
-('customer_account_create',	6),
-('customer_account_edit',	6),
-('adminhtml_customer',	7),
-('checkout_register',	7),
-('customer_account_create',	7),
-('customer_account_edit',	7),
-('adminhtml_customer',	8),
-('checkout_register',	8),
-('customer_account_create',	8),
-('customer_account_edit',	8),
-('adminhtml_checkout',	9),
-('adminhtml_customer',	9),
-('checkout_register',	9),
-('customer_account_create',	9),
-('customer_account_edit',	9),
-('adminhtml_checkout',	10),
-('adminhtml_customer',	10),
-('adminhtml_checkout',	11),
-('adminhtml_customer',	11),
-('checkout_register',	11),
-('customer_account_create',	11),
-('customer_account_edit',	11),
-('adminhtml_checkout',	15),
-('adminhtml_customer',	15),
-('checkout_register',	15),
-('customer_account_create',	15),
-('customer_account_edit',	15),
-('adminhtml_customer',	17),
-('checkout_register',	17),
-('customer_account_create',	17),
-('customer_account_edit',	17),
-('adminhtml_checkout',	18),
-('adminhtml_customer',	18),
-('checkout_register',	18),
-('customer_account_create',	18),
-('customer_account_edit',	18),
-('adminhtml_customer_address',	19),
-('customer_address_edit',	19),
-('customer_register_address',	19),
-('adminhtml_customer_address',	20),
-('customer_address_edit',	20),
-('customer_register_address',	20),
-('adminhtml_customer_address',	21),
-('customer_address_edit',	21),
-('customer_register_address',	21),
-('adminhtml_customer_address',	22),
-('customer_address_edit',	22),
-('customer_register_address',	22),
-('adminhtml_customer_address',	23),
-('customer_address_edit',	23),
-('customer_register_address',	23),
-('adminhtml_customer_address',	24),
-('customer_address_edit',	24),
-('customer_register_address',	24),
-('adminhtml_customer_address',	25),
-('customer_address_edit',	25),
-('customer_register_address',	25),
-('adminhtml_customer_address',	26),
-('customer_address_edit',	26),
-('customer_register_address',	26),
-('adminhtml_customer_address',	27),
-('customer_address_edit',	27),
-('customer_register_address',	27),
-('adminhtml_customer_address',	28),
-('customer_address_edit',	28),
-('customer_register_address',	28),
-('adminhtml_customer_address',	29),
-('customer_address_edit',	29),
-('customer_register_address',	29),
-('adminhtml_customer_address',	30),
-('customer_address_edit',	30),
-('customer_register_address',	30),
-('adminhtml_customer_address',	31),
-('customer_address_edit',	31),
-('customer_register_address',	31),
-('adminhtml_customer_address',	32),
-('customer_address_edit',	32),
-('customer_register_address',	32),
-('adminhtml_customer',	35),
-('adminhtml_customer_address',	36),
-('customer_address_edit',	36),
-('customer_register_address',	36);
-UNLOCK TABLES;
-
 
 
 
@@ -905,3 +708,205 @@ INSERT INTO `sales_flat_quote_shipping_rate` (`rate_id`, `address_id`, `created_
 
 INSERT INTO `wishlist` (`wishlist_id`, `customer_id`, `shared`, `sharing_code`, `updated_at`) VALUES
 (1,	1,	0,	'ab15d835aafe338339ac9e4d0482ada4',	'2013-10-27 22:39:36');
+
+
+
+
+
+
+LOCK TABLES `customer_address_entity` WRITE;
+INSERT INTO `customer_address_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `increment_id`, `parent_id`, `created_at`, `updated_at`, `is_active`) VALUES
+(1,	2,	0,	NULL,	1,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1);
+UNLOCK TABLES;
+
+LOCK TABLES `customer_address_entity_int` WRITE;
+INSERT INTO `customer_address_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	2,	29,	1,	22);
+UNLOCK TABLES;
+
+LOCK TABLES `customer_address_entity_text` WRITE;
+INSERT INTO `customer_address_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	2,	25,	1,	'1515 21st ave');
+UNLOCK TABLES;
+
+LOCK TABLES `customer_address_entity_varchar` WRITE;
+INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	2,	19,	1,	NULL),
+(2,	2,	20,	1,	'John'),
+(3,	2,	21,	1,	'L'),
+(4,	2,	22,	1,	'Doe'),
+(5,	2,	23,	1,	'1515 21st ave'),
+(6,	2,	24,	1,	NULL),
+(7,	2,	26,	1,	'Lewiston'),
+(8,	2,	27,	1,	'US'),
+(9,	2,	28,	1,	'Idaho'),
+(10,	2,	30,	1,	'83501'),
+(11,	2,	31,	1,	'208-555-5555'),
+(12,	2,	32,	1,	NULL),
+(13,	2,	36,	1,	NULL);
+UNLOCK TABLES;
+
+LOCK TABLES `customer_eav_attribute` WRITE;
+INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filter`, `multiline_count`, `validate_rules`, `is_system`, `sort_order`, `data_model`) VALUES
+(1,	1,	NULL,	0,	NULL,	1,	10,	NULL),
+(2,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(3,	1,	NULL,	0,	NULL,	1,	20,	NULL),
+(4,	0,	NULL,	0,	NULL,	0,	30,	NULL),
+(5,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	40,	NULL),
+(6,	0,	NULL,	0,	NULL,	0,	50,	NULL),
+(7,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	60,	NULL),
+(8,	0,	NULL,	0,	NULL,	0,	70,	NULL),
+(9,	1,	NULL,	0,	'a:1:{s:16:\"input_validation\";s:5:\"email\";}',	1,	80,	NULL),
+(10,	1,	NULL,	0,	NULL,	1,	25,	NULL),
+(11,	0,	'date',	0,	'a:1:{s:16:\"input_validation\";s:4:\"date\";}',	0,	90,	NULL),
+(12,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(13,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(14,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(15,	0,	NULL,	0,	'a:1:{s:15:\"max_text_length\";i:255;}',	0,	100,	NULL),
+(16,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(17,	0,	NULL,	0,	NULL,	0,	0,	NULL),
+(18,	0,	NULL,	0,	'a:0:{}',	0,	110,	NULL),
+(19,	0,	NULL,	0,	NULL,	0,	10,	NULL),
+(20,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	20,	NULL),
+(21,	0,	NULL,	0,	NULL,	0,	30,	NULL),
+(22,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	40,	NULL),
+(23,	0,	NULL,	0,	NULL,	0,	50,	NULL),
+(24,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	60,	NULL),
+(25,	1,	NULL,	2,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	70,	NULL),
+(26,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	80,	NULL),
+(27,	1,	NULL,	0,	NULL,	1,	90,	NULL),
+(28,	1,	NULL,	0,	NULL,	1,	100,	NULL),
+(29,	1,	NULL,	0,	NULL,	1,	100,	NULL),
+(30,	1,	NULL,	0,	'a:0:{}',	1,	110,	'customer/attribute_data_postcode'),
+(31,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	120,	NULL),
+(32,	1,	NULL,	0,	'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',	1,	130,	NULL),
+(33,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(34,	0,	NULL,	0,	'a:1:{s:16:\"input_validation\";s:4:\"date\";}',	1,	0,	NULL),
+(35,	1,	NULL,	0,	NULL,	1,	28,	NULL),
+(36,	1,	NULL,	0,	NULL,	1,	140,	NULL),
+(37,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(38,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(39,	0,	NULL,	0,	NULL,	1,	0,	NULL),
+(40,	0,	NULL,	0,	NULL,	1,	0,	NULL);
+UNLOCK TABLES;
+
+
+
+LOCK TABLES `customer_entity_datetime` WRITE;
+INSERT INTO `customer_entity_datetime` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	1,	11,	1,	'1982-03-17 00:00:00');
+UNLOCK TABLES;
+
+LOCK TABLES `customer_entity_int` WRITE;
+INSERT INTO `customer_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	1,	18,	1,	1),
+(2,	1,	13,	1,	1),
+(3,	1,	14,	1,	1);
+UNLOCK TABLES;
+
+LOCK TABLES `customer_entity_varchar` WRITE;
+INSERT INTO `customer_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(2,	1,	5,	1,	'John'),
+(3,	1,	6,	1,	'L'),
+(4,	1,	7,	1,	'Doe'),
+(7,	1,	12,	1,	'e629b520f893796fba64670cc0a951ee:m3'),
+(8,	1,	3,	1,	'Admin');
+UNLOCK TABLES;
+
+LOCK TABLES `customer_form_attribute` WRITE;
+INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
+('adminhtml_customer',	1),
+('adminhtml_customer',	3),
+('adminhtml_customer',	4),
+('checkout_register',	4),
+('customer_account_create',	4),
+('customer_account_edit',	4),
+('adminhtml_customer',	5),
+('checkout_register',	5),
+('customer_account_create',	5),
+('customer_account_edit',	5),
+('adminhtml_customer',	6),
+('checkout_register',	6),
+('customer_account_create',	6),
+('customer_account_edit',	6),
+('adminhtml_customer',	7),
+('checkout_register',	7),
+('customer_account_create',	7),
+('customer_account_edit',	7),
+('adminhtml_customer',	8),
+('checkout_register',	8),
+('customer_account_create',	8),
+('customer_account_edit',	8),
+('adminhtml_checkout',	9),
+('adminhtml_customer',	9),
+('checkout_register',	9),
+('customer_account_create',	9),
+('customer_account_edit',	9),
+('adminhtml_checkout',	10),
+('adminhtml_customer',	10),
+('adminhtml_checkout',	11),
+('adminhtml_customer',	11),
+('checkout_register',	11),
+('customer_account_create',	11),
+('customer_account_edit',	11),
+('adminhtml_checkout',	15),
+('adminhtml_customer',	15),
+('checkout_register',	15),
+('customer_account_create',	15),
+('customer_account_edit',	15),
+('adminhtml_customer',	17),
+('checkout_register',	17),
+('customer_account_create',	17),
+('customer_account_edit',	17),
+('adminhtml_checkout',	18),
+('adminhtml_customer',	18),
+('checkout_register',	18),
+('customer_account_create',	18),
+('customer_account_edit',	18),
+('adminhtml_customer_address',	19),
+('customer_address_edit',	19),
+('customer_register_address',	19),
+('adminhtml_customer_address',	20),
+('customer_address_edit',	20),
+('customer_register_address',	20),
+('adminhtml_customer_address',	21),
+('customer_address_edit',	21),
+('customer_register_address',	21),
+('adminhtml_customer_address',	22),
+('customer_address_edit',	22),
+('customer_register_address',	22),
+('adminhtml_customer_address',	23),
+('customer_address_edit',	23),
+('customer_register_address',	23),
+('adminhtml_customer_address',	24),
+('customer_address_edit',	24),
+('customer_register_address',	24),
+('adminhtml_customer_address',	25),
+('customer_address_edit',	25),
+('customer_register_address',	25),
+('adminhtml_customer_address',	26),
+('customer_address_edit',	26),
+('customer_register_address',	26),
+('adminhtml_customer_address',	27),
+('customer_address_edit',	27),
+('customer_register_address',	27),
+('adminhtml_customer_address',	28),
+('customer_address_edit',	28),
+('customer_register_address',	28),
+('adminhtml_customer_address',	29),
+('customer_address_edit',	29),
+('customer_register_address',	29),
+('adminhtml_customer_address',	30),
+('customer_address_edit',	30),
+('customer_register_address',	30),
+('adminhtml_customer_address',	31),
+('customer_address_edit',	31),
+('customer_register_address',	31),
+('adminhtml_customer_address',	32),
+('customer_address_edit',	32),
+('customer_register_address',	32),
+('adminhtml_customer',	35),
+('adminhtml_customer_address',	36),
+('customer_address_edit',	36),
+('customer_register_address',	36);
+UNLOCK TABLES;
