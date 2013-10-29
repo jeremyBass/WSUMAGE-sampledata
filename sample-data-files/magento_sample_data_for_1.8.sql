@@ -6720,6 +6720,7 @@ CREATE TABLE `sales_flat_order` (
   `state` varchar(32) DEFAULT NULL COMMENT 'State',
   `status` varchar(32) DEFAULT NULL COMMENT 'Status',
   `coupon_code` varchar(255) DEFAULT NULL COMMENT 'Coupon Code',
+  `coupon_rule_name` varchar(255) DEFAULT NULL COMMENT 'Coupon Sales Rule Name',
   `protect_code` varchar(255) DEFAULT NULL COMMENT 'Protect Code',
   `shipping_description` varchar(255) DEFAULT NULL COMMENT 'Shipping Description',
   `is_virtual` smallint(5) unsigned DEFAULT NULL COMMENT 'Is Virtual',
