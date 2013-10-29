@@ -7308,6 +7308,11 @@ CREATE TABLE `sales_flat_quote_address` (
   `base_shipping_hidden_tax_amnt` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Hidden Tax Amount',
   `shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Shipping Incl Tax',
   `base_shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Incl Tax',
+  `vat_id` text COMMENT 'Vat Id',
+  `vat_is_valid` smallint(6) COMMENT 'Vat Is Valid',
+  `vat_request_id` text COMMENT 'Vat Request Id',
+  `vat_request_date` text COMMENT 'Vat Request Date',
+  `vat_request_success` smallint(6) COMMENT 'Vat Request Success',
   PRIMARY KEY (`address_id`),
   KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_QUOTE_ID` (`quote_id`),
   CONSTRAINT `FK_SALES_FLAT_QUOTE_ADDRESS_QUOTE_ID_SALES_FLAT_QUOTE_ENTITY_ID` FOREIGN KEY (`quote_id`) REFERENCES `sales_flat_quote` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE
