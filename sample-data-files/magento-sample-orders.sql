@@ -82,40 +82,6 @@ INSERT INTO `wishlist` (`wishlist_id`, `customer_id`, `shared`, `sharing_code`, 
 
 
 
-
-
-LOCK TABLES `customer_address_entity` WRITE;
-INSERT INTO `customer_address_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `increment_id`, `parent_id`, `created_at`, `updated_at`, `is_active`) VALUES
-(1,	2,	0,	NULL,	1,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1);
-UNLOCK TABLES;
-
-LOCK TABLES `customer_address_entity_int` WRITE;
-INSERT INTO `customer_address_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	2,	29,	1,	22);
-UNLOCK TABLES;
-
-LOCK TABLES `customer_address_entity_text` WRITE;
-INSERT INTO `customer_address_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	2,	25,	1,	'1515 21st ave');
-UNLOCK TABLES;
-
-LOCK TABLES `customer_address_entity_varchar` WRITE;
-INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-(1,	2,	19,	1,	NULL),
-(2,	2,	20,	1,	'John'),
-(3,	2,	21,	1,	'L'),
-(4,	2,	22,	1,	'Doe'),
-(5,	2,	23,	1,	'1515 21st ave'),
-(6,	2,	24,	1,	NULL),
-(7,	2,	26,	1,	'Lewiston'),
-(8,	2,	27,	1,	'US'),
-(9,	2,	28,	1,	'Idaho'),
-(10,	2,	30,	1,	'83501'),
-(11,	2,	31,	1,	'208-555-5555'),
-(12,	2,	32,	1,	NULL),
-(13,	2,	36,	1,	NULL);
-UNLOCK TABLES;
-
 LOCK TABLES `customer_eav_attribute` WRITE;
 INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filter`, `multiline_count`, `validate_rules`, `is_system`, `sort_order`, `data_model`) VALUES
 (1,	1,	NULL,	0,	NULL,	1,	10,	NULL),
@@ -158,6 +124,40 @@ INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filte
 (38,	0,	NULL,	0,	NULL,	1,	0,	NULL),
 (39,	0,	NULL,	0,	NULL,	1,	0,	NULL),
 (40,	0,	NULL,	0,	NULL,	1,	0,	NULL);
+UNLOCK TABLES;
+
+
+
+LOCK TABLES `customer_address_entity` WRITE;
+INSERT INTO `customer_address_entity` (`entity_id`, `entity_type_id`, `attribute_set_id`, `increment_id`, `parent_id`, `created_at`, `updated_at`, `is_active`) VALUES
+(1,	2,	0,	NULL,	1,	'2013-10-27 22:28:11',	'2013-10-27 22:51:04',	1);
+UNLOCK TABLES;
+
+LOCK TABLES `customer_address_entity_int` WRITE;
+INSERT INTO `customer_address_entity_int` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	2,	29,	1,	22);
+UNLOCK TABLES;
+
+LOCK TABLES `customer_address_entity_text` WRITE;
+INSERT INTO `customer_address_entity_text` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	2,	25,	1,	'1515 21st ave');
+UNLOCK TABLES;
+
+LOCK TABLES `customer_address_entity_varchar` WRITE;
+INSERT INTO `customer_address_entity_varchar` (`value_id`, `entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
+(1,	2,	19,	1,	NULL),
+(2,	2,	20,	1,	'John'),
+(3,	2,	21,	1,	'L'),
+(4,	2,	22,	1,	'Doe'),
+(5,	2,	23,	1,	'1515 21st ave'),
+(6,	2,	24,	1,	NULL),
+(7,	2,	26,	1,	'Lewiston'),
+(8,	2,	27,	1,	'US'),
+(9,	2,	28,	1,	'Idaho'),
+(10,	2,	30,	1,	'83501'),
+(11,	2,	31,	1,	'208-555-5555'),
+(12,	2,	32,	1,	NULL),
+(13,	2,	36,	1,	NULL);
 UNLOCK TABLES;
 
 
