@@ -6909,6 +6909,7 @@ CREATE TABLE `sales_flat_order_address` (
   `middlename` varchar(255) DEFAULT NULL COMMENT 'Middlename',
   `suffix` varchar(255) DEFAULT NULL COMMENT 'Suffix',
   `company` varchar(255) DEFAULT NULL COMMENT 'Company',
+  `vat_id` text DEFAULT NULL,
   `address_id` int(11) DEFAULT NULL,
   `gift_message_id` int(11) DEFAULT NULL,
   `tax_id` varchar(255) DEFAULT NULL,
