@@ -3,11 +3,13 @@
 
 		$i=0;
         foreach (Mage::app()->getWebsites() as $website) {
-			$name = $website->getName();
+			
             foreach ($website->getGroups() as $group) {
+				$name = $group->getName();
+
+				
                 $stores = $group->getStores();
                 foreach ($stores as $store) {
-					
                     //$name = $store->getFrontendName();
 					$content="";
 					$storeId = $store->getStoreId();
