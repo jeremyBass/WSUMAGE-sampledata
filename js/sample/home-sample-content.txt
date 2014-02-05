@@ -1,0 +1,16 @@
+<div id="pral">
+   <div class="pane p1" data-stellar-ratio="2">
+       <span>WSU Market Place feature </span>
+      </div>
+   <div class="pane p2" data-stellar-ratio="2">
+      {{block type="catalog/product" stores_per="5" products_per="2" panles_per="3" template="custom_block/site_list.phtml"}}
+   </div>
+   <div class="pane p3" data-stellar-ratio="2">
+      <span>Login Or sign up</span>
+   </div>
+   <div class="pane p4" data-stellar-ratio="2">
+      <span>Feature Products</span>
+   </div>
+</div>
+
+
